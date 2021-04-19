@@ -1,0 +1,112 @@
+/**author: Steven Z April 18th 2021*/
+/*Following BEM naming convention*/
+.body {
+    display: flex;
+}
+
+.body__main {
+    flex-direction: row;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.body__main .body__main__desc {
+    width: 20%;
+    line-height: 150%;
+    font-size: 16px;
+}
+
+.root {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.board {
+    display: flex;
+    flex-direction: column;
+}
+
+.board  .board__squareRows {
+    flex-direction: row;
+    display: flex;
+    width: 100%;
+}
+
+.board .board__squareRows .board__squareRows__square {
+   width: 30px;
+   height: 30px;
+   font-size: 25px;
+   text-align: center;
+   font-family: sans-serif;
+   color: #435f43;
+}
+
+.board .board__squareRows .board__squareRows__square.board__squareRows__square--highlighted.board__squareRows__square--solvedValue {
+    color: rgb(144, 144, 218);
+}
+
+.board .board__squareRows .board__squareRows__square.board__squareRows__square--solvedValue {
+    color: rgb(144, 144, 218);
+}
+
+.board .board__squareRows .board__squareRows__square.board__squareRows__square--highlighted{
+    background-color: #c5f1c5;
+}
+
+.board .board__controls {
+    display: flex;
+    flex-direction: column;
+    border-style: solid;
+    border-width: 1px;
+    border-color: lightgrey;
+}
+
+.board .board__controls .board_controls__infoLabel {
+    font-size: 16px;
+}
+
+.board .board__controls .board_controls__infoLabel.board_controls__infoLabel--warning {
+    border-color: red;
+    border-width: 1px;
+    border-style: solid;
+    color:#435f43
+}
+
+.board__controls section {
+    padding-top: 10px;
+    display:flex;
+    flex-direction: column;
+    font-family: fantasy;
+    height: 80px;
+    max-width: 340px;
+    min-width: 340px;
+    font-size: 16px;
+    border-bottom: solid;
+    
+}
+
+.board__controls__inputButton {
+    border-radius: 6px;
+    background-color: green;
+    color:white;
+    font-size: 16px;
+    cursor: pointer;
+    justify-content: center;
+    align-content: center;
+    padding: 5px;
+}
+
+
+.board__controls__inputButton.board__controls__inputButton--solve {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.section__splitter {
+    height: 1px;
+    color: lightgreen;
+}
+
