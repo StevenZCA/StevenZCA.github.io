@@ -16,24 +16,28 @@
     <div class="body__main">
         <div class="body__main__desc">
              <ul>
-                <li>This UI is composed of two react components, parent GameComponent and two children BoardComponent</li>
-                <li>Both components maintain their own React states and communicate each other via callbacks</li>
-                <li>Given more time, BoardComponent could be divided to be smaller components that can separates out the input controls </li>
-                <li>Users have four methods to set up the Sudoku board, either Type, random pick, manual pick, paste serialized value strings</li>
-                <li>The solved board distinguishes values from initial board setup and the filled in values </li>
+                <li>This UI is composed of two react components, one parent GameComponent and two children BoardComponent</li>
+                <li>Both components maintain their own React states and communicate each other via callbacks properties</li>
+                <li>Given more time, BoardComponent could be divided into smaller components that can separate out the input controls </li>
+                <li>Users have 4 methods to set up the Sudoku board, either 1.Type, 2.random pick, 3.manual pick, 4. pasted serialized value strings</li>
+                <li>Detailed input validation and responsive board set up have been implemented</li>
+                <li>The solved board distinguishes values from the initial board setup and those filled in </li>
               </ul>  
             <p>
-                <ul>
-                    <li>The core algorithm is implemented based on Peter Norvig http://norvig.com/ Sudoku solver algorithm.</li>
-                    <li>I have also done some research on different algorithms that includes backtracking, dancing links, algorithm X
-                        etc</li>
-                    <li>I've decided to leverage Peter Norvig algorithm since the average computation time is closer to
-                        the best known JavaScript implementations online.
-                    </li>
-                  </ul>  
+            <ul>
+                <li>The core algorithm is implemented based on Peter Norvig http://norvig.com/ Sudoku solver algorithm.</li>
+                <li>I have also done research on different algorithms that includes backtracking, dancing links, algorithm X
+                    etc</li>
+                <li>I've decided to leverage Peter Norvig algorithm since the average computation time is closer to
+                    the best known JavaScript implementations online.
+                </li>
+              </ul>  
             </p>
             <p>
-                Also the performance benchmark shows better result in JEST unit test than running it on browser.
+               <b>npm test</b> will run Jest unit tests which test both React Components and Algorithms
+            </p>
+            <p>
+                Also the performance benchmark shows <b>better</b> result in JEST unit test than running it on browser.
             </p>
             <p>
                 Thank you and Have great day!
