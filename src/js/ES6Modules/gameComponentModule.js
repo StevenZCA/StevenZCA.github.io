@@ -10,8 +10,9 @@
  */
 
 import {puzzles} from './puzzleModule';
+import React from 'react';
 
-import {search, parse_grid, rows, cols} from './puzzleModule';
+import {search, parse_grid, rows, cols} from './sudokuModule';
 import BoardComponent from './boardComponentModule';
 
 export default class GameComponent extends React.Component {

@@ -1,5 +1,5 @@
 
-import { search, parse_grid, createSquares, rows, cols } from '../src/ES6Modules/sudokuModule';
+import { search, parse_grid, createSquares, rows, cols } from '../src/js/ES6Modules/sudokuModule';
 describe('Test for Sudoku algorithm', () => {
     //convert the resolved map to a string that holds key:value pairs for better readability 
     const serializeMap = (map) => {

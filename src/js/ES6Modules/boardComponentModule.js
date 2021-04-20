@@ -5,8 +5,8 @@
  *A reusable React component that renders an interactive or read only mode sudoku board   
  */
  import React from 'react';
- import ReactDOM from 'react-dom';
  import {rows, cols} from './sudokuModule.js';
+ import { puzzles } from './puzzleModule.js'
  
  export default class BoardComponent extends React.Component {
     /**
@@ -16,9 +16,15 @@
     constructor(props) {
         super(props);
         //initial state.values is an array of 81 '.'s
+        const initialValues = this.props.isInteractive
+            ? this._getRandomPuzzle()
+            : new Array(81).fill('.').join('');
         this.state = {
-            values: new Array(81).fill('.').join('')
+            values: initialValues
         };
+        if(this.props.setValues){
+            this.props.setValues(initialValues);
+        }
     }
 
     render() {
@@ -72,13 +78,17 @@
 
 
     _onAutoPickClick() {
-        const index = (Math.floor(Math.random() * puzzles.length) % puzzles.length);
         this.setState({
-            values: puzzles[index]
+            values: this._getRandomPuzzle()
         });
         this.setState({
             filledIndex: []
         });
+    }
+
+    _getRandomPuzzle() {
+        const index = (Math.floor(Math.random() * puzzles.length) % puzzles.length);
+        return  puzzles[index];
     }
 
     _renderControls() {
