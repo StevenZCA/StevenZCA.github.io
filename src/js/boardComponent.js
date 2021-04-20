@@ -12,10 +12,13 @@ class BoardComponent extends React.Component {
      */
     constructor(props) {
         super(props);
-        //initial state.values is an array of 81 '.'s
-        this.state = {
-            values: new Array(81).fill('.').join('')
-        };
+        if(this.props.isInteractive){
+            const initialState = puzzles[(Math.floor(Math.random() * puzzles.length) % puzzles.length)]
+            this.state = {
+                values: initialState
+            };
+            this.props.setValues(initialState);
+        }
     }
 
     render() {
@@ -82,23 +85,37 @@ class BoardComponent extends React.Component {
         return (
             <div className="board__controls">
                 <section>
-                        <input
-                            className="board__controls__inputButton board__controls__inputButton--solve"
-                            id="sudokuResetBtn"
-                            type="button"
-                            value="Reset"
-                            onClick={this.reset.bind(this)}
-                        />
+                    <input
+                        className="board__controls__inputButton board__controls__inputButton--solve"
+                        id="sudokuResetBtn"
+                        type="button"
+                        value="Reset"
+                        onClick={this.reset.bind(this)}
+                    />
                 </section>
-                <section>
+                <section style={{ "height": "50px" }}>
+                    <label
+                        className="board_controls__infoLabel"
+                    >Performance benchmark: </label>
+                    <div className="performanceBenchmark"></div>
+                </section>
+                <section style={{ "height": "20px" }}>
                     <label>
-                        Method 1:
+                        Method 0: Type a number on each square
                     </label>
+                </section>
+                <section className="autoPick">
                     <div>
-                        <input className="board__controls__inputButton"
-                            type="button"
-                            value="Pick a random puzzle"
-                            onClick={this._onAutoPickClick.bind(this)} />
+                        <label>
+                            Method 1:
+                        </label>
+
+                        <div>
+                            <input className="board__controls__inputButton board__controls__inputButton--small"
+                                type="button"
+                                value="Pick a random puzzle"
+                                onClick={this._onAutoPickClick.bind(this)} />
+                        </div>
                     </div>
                 </section>
                 <section>
@@ -114,12 +131,6 @@ class BoardComponent extends React.Component {
                         onChange={this._onUserInputChange.bind(this)}
                     />
                 </section>
-                <section>
-                    <label
-                        className="board_controls__infoLabel"
-                    >Performance benchmark: </label>
-                    <div className="performanceBenchmark"></div>
-                </section>
             </div>
         )
     }
@@ -131,20 +142,20 @@ class BoardComponent extends React.Component {
             return (<option value={entry} key={index}>{entry}</option>);
         })
         return (
-            <select 
-                name="Select a puzzle from the list" 
-                id="puzzles" 
+            <select
+                name="Select a puzzle from the list"
+                id="puzzles"
                 onChange={this._onPuzzleChange.bind(this)}
             >
-                {[...[<option value={null} key={index+1}>None</option>], ...options]}
+                {[...[<option value={null} key={index + 1}>None</option>], ...options]}
             </select>
         )
     }
 
-    _onPuzzleChange(evt){
-        if(evt.target.value && evt.target.value!=='None'){
-            this.setState({'values' : evt.target.value});
-        }else{
+    _onPuzzleChange(evt) {
+        if (evt.target.value && evt.target.value !== 'None') {
+            this.setState({ 'values': evt.target.value });
+        } else {
             this.reset();
         }
     }
@@ -161,6 +172,9 @@ class BoardComponent extends React.Component {
         this.setState({ values: userInput });
     }
 
+    /**
+     * Notify the parent game component when the board setup has an update
+     */
     componentDidUpdate() {
         if (this.props.setValues) {
             this.props.setValues(this.state.values);
@@ -249,7 +263,7 @@ class BoardComponent extends React.Component {
         );
     }
 
-    reset(){
-        this.setState({values: new Array(81).fill('.').join('')})
+    reset() {
+        this.setState({ values: new Array(81).fill('.').join('') })
     }
 }

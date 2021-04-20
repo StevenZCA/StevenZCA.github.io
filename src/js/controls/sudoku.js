@@ -151,7 +151,7 @@ function center(s, w){
   return s;
 }
   
-function board_string(values){ // Used for debugging
+function board_string(values){
   var width = 0;
   for (var s in squares)
     if (values[squares[s]].length > width)
