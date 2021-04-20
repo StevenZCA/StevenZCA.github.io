@@ -1,26 +1,21 @@
-
 <!DOCTYPE html>
-<html>
-<head>
-    <title>StevenZCA Sudoku solver</title>
-</head>
-
-<body>
-    <html>
-
-    <head>
-        <script src="./src/js/libs/react.development.js"></script>
-        <script src="./src/js/libs/react-dom.development.js"></script>
-        <script src="./src/js/libs/babel.js"></script>
-        <script type="text/javascript" src="./src/js/controls/sudoku.js"></script>
-        <script type="text/javascript" src="./src/js/controls/puzzles.js"></script>
-        <link rel="stylesheet" href="./src/css/sudoku.css">
-    </head>
-
-    <body>
-        <div class='body__main'>
-            <div class="body__main__desc">
-                This React-ified UI is implemented with a parent container GameComponent and its two children
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="StevenZCA Sudoku Solver"
+      content="React APP + Sudoku Solver"
+    />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>StevenZCA Sudoku</title>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+        This React-ified UI is implemented with a parent container GameComponent and its two children
                 BoardComponent. Both React components maintain there own React component State.
                 The Parent component passes properties to Child component as well as a callback _setValue function 
                 defined in parent component and it is triggered when Child component fires componentDidUpdate event.
@@ -41,15 +36,7 @@
                 <p>
                     Steven.Zhong@gmail.com April 18th 2021 
                 </p>
-            </div>
-            <div>
-                <div class='root'></div>
-                <script type='text/babel' src='./src/js/boardComponent.js'>
-                </script>
-                <script type='text/babel' src='./src/js/gameComponent.js'>
-                </script>
-            </div>
-        </div>
-    </body>
+    <div id="root"></div>
+  <script src="/static/js/bundle.js"></script><script src="/static/js/vendors~main.chunk.js"></script><script src="/static/js/main.chunk.js"></script></body>
+</html>
 
-    </html>
