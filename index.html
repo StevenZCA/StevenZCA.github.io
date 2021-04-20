@@ -15,25 +15,31 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div class="body_main">
         <div class="body__main__desc">
-            This React-ified UI is implemented with a parent container GameComponent and its two children
-            BoardComponent. Both React components maintain there own React component State.
-            The Parent component passes properties to Child component as well as a callback _setValue function
-            defined in parent component and it is triggered when Child component fires componentDidUpdate event.
+             <ul>
+                <li>This UI is composed of two react components, parent GameComponent and two children BoardComponent</li>
+                <li>Both components maintain their own React states and communicate each other via callbacks</li>
+                <li>Given more time, BoardComponent could be divided to be smaller components that can separates out the input controls </li>
+                <li>Users have four methods to set up the Sudoku board, either Type, random pick, manual pick, paste serialized value strings</li>
+                <li>The solved board distinguishes values from initial board setup and the filled in values </li>
+              </ul>  
             <p>
-                The core algorithm is written based on Peter Norvig http://norvig.com/ Sudoku solver algorithm. Besides
-                that, I have
-                done comprehensive research on the best algorithm that includes backtracking, dancing links, algorithm X
-                etc. In
-                the end. I've decided to leverage Peter Norvig algorithm since the average computation time is closer to
-                the best
-                known JavaScript implementations online.
+                <ul>
+                    <li>The core algorithm is implemented based on Peter Norvig http://norvig.com/ Sudoku solver algorithm.</li>
+                    <li>I have also done some research on different algorithms that includes backtracking, dancing links, algorithm X
+                        etc</li>
+                    <li>I've decided to leverage Peter Norvig algorithm since the average computation time is closer to
+                        the best known JavaScript implementations online.
+                    </li>
+                  </ul>  
             </p>
             <p>
-                Overall, the JavaScript implementations on browsers are slower than those done by Python or C++ ones.
-                Also the performance benchmark shows better result in JEST unit test than the live result on browser.
+                Also the performance benchmark shows better result in JEST unit test than running it on browser.
             </p>
             <p>
-                StevenZCA April 18th 2021
+                Thank you and Have great day!
+            </p>
+            <p>    
+               <b>Steven.zhong@gmail.com  April 18th 2021</b>
             </p>
         </div>
         <div>
