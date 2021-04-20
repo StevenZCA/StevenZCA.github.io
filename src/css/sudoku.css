@@ -13,9 +13,10 @@
 
 
 .body__main .body__main__desc {
-    width: 20%;
+    width: 30%;
     line-height: 160%;
-    font-size: 18px;
+    font-size: 14px;
+    padding: 10px;
 }
 
 .root {
@@ -84,8 +85,14 @@
     max-width: 340px;
     min-width: 340px;
     font-size: 16px;
-    border-bottom: solid;
-    
+    border-bottom: solid;   
+}
+
+.board__controls section.autoPick{
+   flex-direction: row;
+   display: flex;
+   padding: 5px;
+   height: 40px;
 }
 
 .board__controls__inputButton {
@@ -97,6 +104,11 @@
     justify-content: center;
     align-content: center;
     padding: 5px;
+}
+
+.board__controls__inputButton.board__controls__inputButton--small{
+    font-size: 13px;
+    padding: 2px;
 }
 
 

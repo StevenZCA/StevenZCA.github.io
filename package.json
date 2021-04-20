@@ -1,0 +1,48 @@
+{
+  "name": "szsudoku",
+  "version": "1.0.2",
+  "description": "Sudoku solver",
+  "main": "babel.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StevenZCA/StevenZCA.github.io.git"
+  },
+  "keywords": [
+    "React",
+    "JS",
+    "Backtracking",
+    "Sukoku"
+  ],
+  "author": "StevenZCA",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StevenZCA/StevenZCA.github.io/issues"
+  },
+  "homepage": "https://github.com/StevenZCA/StevenZCA.github.io#readme",
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.15",
+    "@babel/preset-react": "^7.13.13",
+    "babel-cli": "^6.26.0",
+    "babel-jest": "^26.6.3",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "enzyme-to-json": "^3.6.2",
+    "jest": "^26.6.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "jest": {
+    "setupFiles": [
+      "./test/setupTests.js"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "dependencies": {
+    "@babel/core": "^7.13.15"
+  }
+}
