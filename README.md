@@ -1,5 +1,7 @@
 # StevenZCA.github.io
 
+live on https://StevenZCA.github.io
+
 This UI is composed of two react components, one parent GameComponent and two children BoardComponent
 
 Both components maintain their own React states and communicate each other via callbacks properties
