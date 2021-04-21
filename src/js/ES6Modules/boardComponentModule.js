@@ -1,5 +1,5 @@
 /**
- *@author StevenZCA
+ *@author StevenZCA  Steven.zhong@gmail.com
  *Date April 18th 2021
  *Description:
  *A reusable React component that renders an interactive or read only mode sudoku board   
