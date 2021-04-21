@@ -1,4 +1,9 @@
-
+/**
+ *@author StevenZCA  Steven.zhong@gmail.com
+ *Date April 18th 2021
+ *Description:
+ *A reusable React component that renders an interactive or read only mode sudoku board   
+ */
 import { search, parse_grid, createSquares, rows, cols } from '../src/js/ES6Modules/sudokuModule';
 describe('Test for Sudoku algorithm', () => {
     //convert the resolved map to a string that holds key:value pairs for better readability 
