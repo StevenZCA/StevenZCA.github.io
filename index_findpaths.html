@@ -1,0 +1,112 @@
+<html>
+<head>
+    <script>
+        /*
+         * @author: Steven.zhong@gmail.com
+         * @Date 2021 May 31st
+         */
+        function findPath(matrix, i, j, path, step) {
+            
+            if (i < 0 || j < 0) {
+                return;
+            }
+            const numOfRows = matrix.length;
+            const numOfCols = matrix[0].length;
+            //Record the move in each path
+            path[step] = { position : `${i}:${j}`};
+            path[step].value = matrix[i][j].slice(0,1);
+            //Reach the last row
+            if (i === numOfRows - 1) {
+                for (let k = j + 1; k < numOfCols; k++) {
+                   path[step + k - j] = { position : `${i}:${k}`};//record the position row:col
+                   path[step + k - j].value = matrix[i][k].slice(0,1);
+                }
+                for (let l = 0; l < step + numOfCols - j; l++) {
+                    solutions.push(path[l]);
+                }
+                solutions.push('<br>');
+                return;
+            }
+            //Reach the last column
+            if (j === numOfCols - 1) {
+                for (let k = i + 1; k < numOfRows; k++) {
+                    path[step + k - i] = { position : `${k}:${j}`};///record the positn row:col
+                    path[step + k - i].value = matrix[k][j].slice(0,1);
+                }
+                for (let l = 0; l < step + numOfRows - i; l++) {
+                    solutions.push(path[l]);
+                }
+                solutions.push('<br>');
+                return;
+            }
+            findPath(matrix, i + 1, j, path, step + 1);
+            findPath(matrix, i, j + 1, path, step + 1);
+        }
+
+        let solutions;
+
+        function findSolution() {
+            const input =  document.getElementById('matrixrixInput').value;
+            let inputMatrix = [];
+            if(input && input.length >0){
+                inputMatrix = input.split(',');
+                inputMatrix = inputMatrix.map(entry=>entry = entry.trim().split(' '));
+            }
+            solutions = [];
+            findPath(inputMatrix, 0, 0, [], 0);
+            solutions = exlucdePathWithHash(solutions, inputMatrix);
+            document.getElementById('info').innerHTML = `<br>Total number of path: ${solutions.length} <br> paths list usinging indice(row:col) starting from index 0s: <br>${solutions.join('<br>')}`;
+        }
+
+        function exlucdePathWithHash(solutions, matrix) {
+            //TODO:For best performance, we should have stopped building paths when a hash sign is found!
+                const result = [];
+                let row = [];
+                let hasHash = false;
+                solutions.forEach((entry) => {
+                    if (entry.position) {
+                        row.push(entry.position);
+                        if (entry.value.indexOf('#') === 0) {
+                            const rowCol = entry.position.split(':');
+                            if( matrix.length -1 !== parseInt(rowCol[0]) && matrix[0].length -1  !== parseInt(rowCol[1])){
+                                hasHash = true;
+                            } 
+                        }
+                    } else if (entry === '<br>') {
+                        result.push(row);
+                        if (hasHash) {
+                            result.pop();
+                        }
+                        hasHash = false;
+                        row = [];
+                    }
+                })
+                return result;
+    }
+    </script>
+
+</head>
+
+<body>
+    <p>Sorry for the draft UI due to the time limit
+    <ul>
+        <li>This is to just demo the algorithm to traverse from left top to bottom right while avoiding any '#' s in the path</li>
+        <li>For simplicity, please find the inline algorithm source code on the web page HTML spec</li>
+        <li>Can't be sure of the original requirement, but he algorithm assume from moves to right and bottom
+            <br>to enabled allowing up and left, we could just added
+            <br>findPath(matrix, i - 1, j, path, step + 1);
+            <br>findPath(matrix, i, j -1 , path, step + 1);
+        </li>
+    </ul>
+    <div>Comma is needed for each end of the lines but not the last line</div>
+    <textarea id="matrixrixInput" style="width:250px;height:250px;font-size: 16px">
+        * * # *,
+        * * * #,
+        * * * #
+    </textarea>
+    <div id='printButton' onclick='findSolution()' style='cursor: pointer; color: darkblue'>Click here to find all paths
+    </div>
+    <div id='info'>Result:</div>
+</body>
+
+</html>
