@@ -60,28 +60,25 @@
 
         function exlucdePathWithHash(solutions, matrix) {
             //TODO:For best performance, we should have stopped building paths when a hash sign is found!
-                const result = [];
-                let row = [];
-                let hasHash = false;
-                solutions.forEach((entry) => {
-                    if (entry.position) {
-                        row.push(entry.position);
-                        if (entry.value.indexOf('#') === 0) {
-                            const rowCol = entry.position.split(':');
-                            if( matrix.length -1 !== parseInt(rowCol[0]) && matrix[0].length -1  !== parseInt(rowCol[1])){
-                                hasHash = true;
-                            } 
-                        }
-                    } else if (entry === '<br>') {
-                        result.push(row);
-                        if (hasHash) {
-                            result.pop();
-                        }
-                        hasHash = false;
-                        row = [];
+            const result = [];
+            let row = [];
+            let hasHash = false;
+            solutions.forEach((entry) => {
+                if (entry.position) {
+                    row.push(entry.position);
+                    if (entry.value.indexOf('#') === 0) {
+                        hasHash = true;
                     }
-                })
-                return result;
+                } else if (entry === '<br>') {
+                    result.push(row);
+                    if (hasHash) {
+                        result.pop();
+                    }
+                    hasHash = false;
+                    row = [];
+                }
+            })
+            return result;
     }
     </script>
 
@@ -102,7 +99,7 @@
     <textarea id="matrixrixInput" style="width:250px;height:250px;font-size: 16px">
         * * # *,
         * * * #,
-        * * * #
+        * * * *
     </textarea>
     <div id='printButton' onclick='findSolution()' style='cursor: pointer; color: darkblue'>Click here to find all paths
     </div>
