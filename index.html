@@ -9,9 +9,18 @@
     <meta name="StevenZCA Sudoku Solver" content="React APP + Sudoku Solver" />
     <title>StevenZCA Sudoku April 2021</title>
     <link href="/static/css/main.9256e8d5.chunk.css" rel="stylesheet">
+    <script>
+        function doit(){
+            fetch('https://od-do.agr.gc.ca/canadianCheeseDirectory.json').
+            then(response=>response.json()).
+            then((data)=>{
+                alert(data.length);
+            })
+        }
+    </script>
 </head>
 
-<body>
+<body onload="doit()">
     pojects:
     <ul>
     <li><a href='./index_findpaths.html'>Find paths from top left to bottom right</a></li>
